@@ -5,7 +5,8 @@ window.onload = function(){
 	mediator.route("canvasClicked",function(){
 		console.log('Object canvas got clicked');
 		object1Sound.playSynth();
-	})
+		object1UI.playGif();
+	});
 
 	var object1UI = new ObjectUI();
 	object1UI.init();
@@ -13,6 +14,11 @@ window.onload = function(){
 	object1Sound.init();
 
 	object1UI.canvas.addEventListener("click", function(){
-			mediator.send('canvasClicked');
-	})
+		mediator.send('canvasClicked');
+	});
+
+	document.addEventListener('click', function(){
+		//object1UI.pauseGif();
+		object1UI.gif.move_to(0);
+	});
 }
